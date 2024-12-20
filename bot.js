@@ -99,8 +99,9 @@ class FAQThreadManager {
     // Create a new thread and store in database
     async createQuestionThread(message) {
         try {
+            const findthread = 
             const thread = await message.startThread({
-                name: `FAQ: ${message.content.substring(0, 50)}...`,
+                name: ` ${message.content.substring(0, 50)}...`,
                 autoArchiveDuration: 1440
             });
 
@@ -239,48 +240,7 @@ Respond with only 'true' or 'false'.`;
 
 module.exports = FAQThreadManager;
 
-// Database schema (prisma/schema.prisma):
-/*
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
 
-generator client {
-  provider = "prisma-client-js"
-}
-
-model Question {
-    id          Int      @id @default(autoincrement())
-    content     String
-    embedding   Float[]
-    authorId    String
-    messageId   String   @unique
-    createdAt   DateTime @default(now())
-    thread      Thread   @relation(fields: [threadId], references: [id])
-    threadId    Int
-    answers     Answer[]
-}
-
-model Thread {
-    id          Int      @id @default(autoincrement())
-    threadId    String   @unique
-    guildId     String
-    channelId   String
-    createdAt   DateTime @default(now())
-    question    Question?
-}
-
-model Answer {
-    id          Int      @id @default(autoincrement())
-    content     String
-    authorId    String
-    messageId   String   @unique
-    createdAt   DateTime @default(now())
-    question    Question @relation(fields: [questionId], references: [id])
-    questionId  Int
-}
-*/
 
 
 
