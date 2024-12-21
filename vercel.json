@@ -2,11 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "src": "bot.js",
+      "src": "sol.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
-    { "src": "/.*", "dest": "bot.js" }
+    { "src": "/.*", "dest": "sol.js" }
   ]
 }
