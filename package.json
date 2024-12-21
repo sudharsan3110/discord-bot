@@ -2,7 +2,7 @@
   "name": "hackathon",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "sol.js",
   "scripts": {
     "dev": "node sol.js",
     "postinstall": "prisma generate"
