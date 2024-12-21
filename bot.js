@@ -99,7 +99,7 @@ class FAQThreadManager {
     // Create a new thread and store in database
     async createQuestionThread(message) {
         try {
-            const findthread = 
+            
             const thread = await message.startThread({
                 name: ` ${message.content.substring(0, 50)}...`,
                 autoArchiveDuration: 1440

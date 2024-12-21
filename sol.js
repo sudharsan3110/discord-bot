@@ -389,48 +389,5 @@ Respond with only 'true' or 'false'.`;
 
 module.exports = FAQThreadManager;
 
-// Database schema (prisma/schema.prisma):
-/*
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
-
-generator client {
-  provider = "prisma-client-js"
-}
-
-model Question {
-    id          Int      @id @default(autoincrement())
-    content     String
-    embedding   Float[]
-    authorId    String
-    messageId   String   @unique
-    createdAt   DateTime @default(now())
-    thread      Thread   @relation(fields: [threadId], references: [id])
-    threadId    Int
-    answers     Answer[]
-}
-
-model Thread {
-    id          Int      @id @default(autoincrement())
-    threadId    String   @unique
-    guildId     String
-    channelId   String
-    createdAt   DateTime @default(now())
-    question    Question?
-}
-
-model Answer {
-    id          Int      @id @default(autoincrement())
-    content     String
-    authorId    String
-    messageId   String   @unique
-    createdAt   DateTime @default(now())
-    question    Question @relation(fields: [questionId], references: [id])
-    questionId  Int
-}
-*/
-
 const manager = new FAQThreadManager(process.env.OPEN_AI);
 manager.initialize(process.env.DISCORD_TOKEN);
